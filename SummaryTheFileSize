@@ -1,66 +1,79 @@
 package com.oracle.cloud;
 
+public class SolutionSum {
 
 
-public class Solution {
-        public String solution(String S) {
-            // write your code in Java SE 8
-            int musicSize = 0;
-            int imageSize = 0;
-            int movieSize = 0;
-            int otherSize = 0;
+// you can also use imports, for example:
+// import java.util.*;
 
-            String[] lines = S.split("\n");
-            for (String line : lines) {
-                String fileName = line.substring(0, line.indexOf(" "));
-                String fileExtension = fileName.substring(fileName.lastIndexOf(".") + 1);
-                Integer fileSize = Integer.valueOf(line.substring(line.indexOf(" ")).replace("b", "").trim());
+// you can write to stdout for debugging purposes, e.g.
+// System.out.println("this is a debug message");
 
-                switch (fileExtension) {
+    public static String solution(String S) {
+        // write your code in Java SE 8
+        int musicSize = 0;
+        int imageSize = 0;
+        int movieSize = 0;
+        int otherSize = 0;
 
-                    case "mp3":
-                        musicSize += fileSize;
-                        break;
-                    case "acc":
-                        musicSize += fileSize;
-                        break;
-                    case "flac":
-                        musicSize += fileSize;
-                        break;
-                    case "jpg":
-                        imageSize += fileSize;
-                        break;
-                    case "bmp":
-                        imageSize += fileSize;
-                        break;
-                    case "gif":
-                        imageSize += fileSize;
-                        break;
-                    case "mkv":
-                        movieSize += fileSize;
-                        break;
-                    case "mp4":
-                        movieSize += fileSize;
-                        break;
-                    case "avi":
-                        movieSize += fileSize;
-                        break;
-                    default:
-                        otherSize += fileSize;
-                        break;
+        String[] lines = S.split("\n");
+        for (String line : lines) {
+            String fileName = line.substring(0, line.indexOf(" "));
+            String fileExtension = fileName.substring(fileName.lastIndexOf(".") + 1);
+            Integer fileSize = Integer.valueOf(line.substring(line.indexOf(" ")).replace("b", "").trim());
 
-                }
+            switch (fileExtension) {
+
+                case "mp3":
+                    musicSize += fileSize;
+                    break;
+                case "acc":
+                    musicSize += fileSize;
+                    break;
+                case "flac":
+                    musicSize += fileSize;
+                    break;
+                case "jpg":
+                    imageSize += fileSize;
+                    break;
+                case "bmp":
+                    imageSize += fileSize;
+                    break;
+                case "gif":
+                    imageSize += fileSize;
+                    break;
+                case "mkv":
+                    movieSize += fileSize;
+                    break;
+                case "mp4":
+                    movieSize += fileSize;
+                    break;
+                case "avi":
+                    movieSize += fileSize;
+                    break;
+                default:
+                    otherSize += fileSize;
+                    break;
+
             }
-
-
-            String returnList="music"+" "+musicSize+"b"+'\n';
-            returnList=returnList+"images"+" "+imageSize+"b"+'\n';
-            returnList=returnList+"movies"+" "+movieSize+"b"+'\n';
-            returnList=returnList+"other"+" "+otherSize+"b"+'\n';
-
-
-            return returnList;
         }
+
+
+        String returnList = "music" + " " + musicSize + "b" + '\n';
+        returnList = returnList + "images" + " " + imageSize + "b" + '\n';
+        returnList = returnList + "movies" + " " + movieSize + "b" + '\n';
+        returnList = returnList + "other" + " " + otherSize + "b" + '\n';
+
+
+        return returnList;
+
+
+    }
+
+    public static void main(String[] args) {
+        String A="a.mp3 11b\nb.mp4 233b\nmrt.mp4 55b";
+        System.out.println(solution(A));
+
     }
 
 }
