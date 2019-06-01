@@ -1,0 +1,26 @@
+package com.oracle.cloud;
+
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+class Solution {
+    public int solution(int[] A) {
+        // write your code in Java SE 8
+        if (A.length == 0) {
+            System.out.println("Pls give a valid array");
+            return 1;
+        }
+
+        Arrays.sort(A);
+        int returnInt = 1;
+
+        for (int i = 0; i < A.length; i++) {
+            if (A[i] > 0 && A[i] == returnInt)
+                returnInt += 1;
+        }
+
+        return returnInt;
+
+    }
+}
